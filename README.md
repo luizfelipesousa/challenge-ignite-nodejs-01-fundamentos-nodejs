@@ -13,8 +13,8 @@ This is a RESTful API for creating and managing tasks. It is built using Node.js
 
 ## Prerequisites
 
-- Node.js (version X.X.X)
-- npm (version X.X.X)
+- Node.js (version 18.15.0)
+- npm (version 9.5.0)
 
 ## Getting Started
 
@@ -41,8 +41,6 @@ This is a RESTful API for creating and managing tasks. It is built using Node.js
 
    ```bash
    npm run build
-   ```
-   ```bash
    npm run start
    ```
 
@@ -68,12 +66,13 @@ Create a new task.
 
 ```json
 {
-  "id": 1,
-  "title": "Task title",
-  "description": "Task description",
-  "dueDate": "2023-05-25",
-  "createdAt": "2023-05-20T10:00:00.000Z",
-  "updatedAt": "2023-05-20T10:00:00.000Z"
+    "id": "11ffb6ec-0519-491b-85df-abf1db2d52c3",
+    "title": "Task title",
+    "description": "Task description",
+    "dueDate": "2023-05-25T00:00:00.000Z",
+    "createdAt": "2023-06-23T16:49:45.035Z",
+    "updatedAt": null,
+    "completedAt": null
 }
 ```
 
@@ -86,20 +85,22 @@ Get a list of all tasks.
 ```json
 [
   {
-    "id": 1,
+    "id": "42fcec01-4ca5-4629-aea9-5c23ae084077",
     "title": "Task title",
     "description": "Task description",
     "dueDate": "2023-05-25",
     "createdAt": "2023-05-20T10:00:00.000Z",
-    "updatedAt": "2023-05-20T10:00:00.000Z"
+    "updatedAt": null,
+    "completedAt": null
   },
   {
-    "id": 2,
+    "id": "a5d3a312-bf84-432f-9d20-cc4b1edda94c",
     "title": "Another task",
     "description": "Another task description",
     "dueDate": "2023-05-26",
     "createdAt": "2023-05-20T11:00:00.000Z",
-    "updatedAt": "2023-05-20T11:00:00.000Z"
+    "updatedAt": null,
+    "completedAt": null
   }
 ]
 ```
@@ -112,12 +113,13 @@ Get a specific task by ID.
 
 ```json
 {
-  "id": 1,
+  "id": "42fcec01-4ca5-4629-aea9-5c23ae084077",
   "title": "Task title",
   "description": "Task description",
   "dueDate": "2023-05-25",
   "createdAt": "2023-05-20T10:00:00.000Z",
-  "updatedAt": "2023-05-20T10:00:00.000Z"
+  "updatedAt": null,
+  "completedAt": null
 }
 ```
 
@@ -131,9 +133,7 @@ Edit a task.
 {
   "title": "Edited task title",
   "description": "Edited task description",
- 
-
- "dueDate": "2023-05-27"
+  "dueDate": "2023-05-27"
 }
 ```
 
@@ -141,12 +141,13 @@ Edit a task.
 
 ```json
 {
-  "id": 1,
+  "id": "42fcec01-4ca5-4629-aea9-5c23ae084077",
   "title": "Edited task title",
   "description": "Edited task description",
   "dueDate": "2023-05-27",
   "createdAt": "2023-05-20T10:00:00.000Z",
-  "updatedAt": "2023-05-20T12:00:00.000Z"
+  "updatedAt": "2023-05-20T12:00:00.000Z",
+  "completedAt": null
 }
 ```
 
@@ -159,6 +160,18 @@ Delete a task.
 ```json
 {
   "message": "Task deleted successfully"
+}
+```
+
+### `PATCH /tasks/:id/complete`
+
+Complete a task.
+
+**Response:**
+
+```json
+{
+  "message": "Task completed successfully"
 }
 ```
 

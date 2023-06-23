@@ -1,8 +1,8 @@
-import { randomUUID } from "node:crypto";
 import { TasksRepository } from "../repository/task-repository";
+import { InvalidDueDateException } from "../errors/invalid-due-date";
 import dayjs from "dayjs";
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
-import { InvalidDueDateException } from "../errors/invalid-due-date";
+import { Task } from "../model/task";
 
 interface CreateTaskUseCaseRequest{
     title: string
@@ -14,15 +14,13 @@ export class CreateTaskUseCase {
 
     constructor(private taskRepository: TasksRepository){}
 
-    async execute({title, description, dueDate}: CreateTaskUseCaseRequest): Promise<void> {
+    async execute({title, description, dueDate}: CreateTaskUseCaseRequest): Promise<Task> {
         dayjs.extend(isSameOrAfter)
 
         const isSameOrAfterDay = dayjs().isSameOrAfter(dueDate, 'date')
 
         if(isSameOrAfterDay){
-            await this.taskRepository.create({title, description, due_date: dueDate})
-
-            return;
+            return await this.taskRepository.create({title, description, due_date: dueDate});
         }
         
         throw new InvalidDueDateException()

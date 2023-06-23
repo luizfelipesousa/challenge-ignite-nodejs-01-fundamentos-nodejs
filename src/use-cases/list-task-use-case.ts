@@ -1,4 +1,3 @@
-import { ResourceNotFoundException } from "../errors/resource-not-found";
 import { TasksRepository } from "../repository/task-repository";
 
 interface ListTaskUseCaseResponse {

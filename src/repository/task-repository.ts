@@ -1,9 +1,10 @@
-import {Prisma, Tasks} from '@prisma/client'
+import {Prisma} from '@prisma/client'
+import { Task } from '../model/task'
 
 export interface TasksRepository {
-    create(task:Prisma.TasksUncheckedCreateInput): Promise<void>
-    delete(task: Tasks): Promise<void>
-    update(task: Tasks): Promise<void>
-    getById(taskId: string): Promise<Tasks | null>
-    getAllTasks(): Promise<Tasks[]>
+    create(task:Prisma.TasksUncheckedCreateInput): Promise<Task>
+    delete(task: Task): Promise<void>
+    update(task: Task): Promise<Task>
+    getById(taskId: string): Promise<Task | null>
+    getAllTasks(): Promise<Task[]>
 }

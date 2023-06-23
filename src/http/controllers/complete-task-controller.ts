@@ -1,6 +1,4 @@
 import {FastifyRequest, FastifyReply} from 'fastify'
-import { Params } from './delete-task-controller';
-import { makeEditTask } from '../../use-cases/factories/make-edit-task-factory';
 import { makeCompleteTask } from '../../use-cases/factories/make-complete-task-factory';
 import { z } from 'zod';
 
@@ -14,5 +12,7 @@ export async function completeTaskController(req: FastifyRequest, reply: Fastify
     const editTask = makeCompleteTask();
     await editTask.execute({taskId: id});
 
-    return reply.status(204).send();
+    return reply.status(200).send({
+        "message": "Task completed successfully"
+      });
 }

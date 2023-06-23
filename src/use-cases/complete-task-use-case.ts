@@ -17,10 +17,10 @@ export class CompleteTaskUseCase {
             throw new ResourceNotFoundException('Task not found.')
         }
 
-        if(!!task.completed_at) {
+        if(!!task.completedAt) {
             throw new TaskAlreadyCompletedException()
         }
 
-        await this.taskRepository.update({...task, completed_at: new Date(), updated_at: new Date()});
+        await this.taskRepository.update({...task, completedAt: new Date(), updatedAt: new Date()});
     }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "01-desafio",
+  "name": "task-management-api",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup ./src -d ./dist",
-    "start": "./dist/server.cjs",
+    "start": "node ./dist/server.cjs",
     "dev": "tsx watch ./src/server.ts"
   },
   "keywords": [],

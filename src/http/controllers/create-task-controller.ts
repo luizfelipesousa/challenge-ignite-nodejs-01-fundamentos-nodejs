@@ -12,8 +12,8 @@ export async function createTaskController(req: FastifyRequest, reply: FastifyRe
     
     const {title, description, dueDate} = requestSchema.parse(req.body)
 
-    const createTask = makeCreateTask();
-    await createTask.execute({title, description, dueDate});
+    const createTaskService = makeCreateTask();
+    const task = await createTaskService.execute({title, description, dueDate});
 
-    return reply.status(201).send();
+    return reply.status(201).send(task);
 }

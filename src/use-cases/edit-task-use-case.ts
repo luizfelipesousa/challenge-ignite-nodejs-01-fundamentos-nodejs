@@ -1,4 +1,5 @@
 import { ResourceNotFoundException } from "../errors/resource-not-found";
+import { Task } from "../model/task";
 import { TasksRepository } from "../repository/task-repository";
 
 interface EditTaskUseCaseRequest{
@@ -13,19 +14,21 @@ export class EditTaskUseCase {
     constructor(private taskRepository: TasksRepository){}
 
     async execute({taskId,
-         title, description, dueDate}: EditTaskUseCaseRequest): Promise<void> {
+         title, description, dueDate}: EditTaskUseCaseRequest): Promise<Task> {
         const task = await this.taskRepository.getById(taskId);
 
         if(!task) {
             throw new ResourceNotFoundException('Task not found.')
         }
 
-        await this.taskRepository.update({
+        const updatedTask = await this.taskRepository.update({
             ...task, 
             title: title ?? task.title,
             description,
-            due_date: dueDate ?? task.due_date,
-            updated_at: new Date(),
+            dueDate: dueDate ?? task.dueDate,
+            updatedAt: new Date(),
         });
+
+        return updatedTask;
     }
 }

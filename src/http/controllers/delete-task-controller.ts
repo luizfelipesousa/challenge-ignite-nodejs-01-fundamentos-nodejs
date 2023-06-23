@@ -16,5 +16,7 @@ export async function deleteTaskController(req: FastifyRequest, reply: FastifyRe
     const deleteUseCase = makeDeleteTask();
     await deleteUseCase.execute({taskId:id});
 
-    return reply.status(204).send();
+    return reply.status(200).send({
+        "message": "Task deleted successfully"
+      });
 }

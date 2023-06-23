@@ -21,7 +21,7 @@ This is a RESTful API for creating and managing tasks. It is built using Node.js
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/luizfelipesousa/challenge-ignite-nodejs-01-fundamentos-nodejs.git
+   git clone https://github.com/luizfelipesousa/task-management-api.git
    ```
 
 2. Install dependencies:

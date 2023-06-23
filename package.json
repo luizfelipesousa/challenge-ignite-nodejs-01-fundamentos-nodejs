@@ -7,6 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup ./src -d ./dist",
+    "start": "./dist/server.cjs",
     "dev": "tsx watch ./src/server.ts"
   },
   "keywords": [],

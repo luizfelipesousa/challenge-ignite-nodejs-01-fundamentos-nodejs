@@ -1,5 +1,3 @@
-Certainly! Here's an example of a README file for an API created using Node.js, TypeScript, Fastify, Zod, and Prisma:
-
 # Task Management API
 
 This is a RESTful API for creating and managing tasks. It is built using Node.js, TypeScript, Fastify, Zod, and Prisma.
@@ -17,14 +15,13 @@ This is a RESTful API for creating and managing tasks. It is built using Node.js
 
 - Node.js (version X.X.X)
 - npm (version X.X.X)
-- PostgreSQL (version X.X.X)
 
 ## Getting Started
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/task-management-api.git
+   git clone https://github.com/luizfelipesousa/challenge-ignite-nodejs-01-fundamentos-nodejs.git
    ```
 
 2. Install dependencies:
@@ -34,19 +31,17 @@ This is a RESTful API for creating and managing tasks. It is built using Node.js
    npm install
    ```
 
-3. Set up the database:
-
-   - Create a PostgreSQL database.
-   - Rename the `.env.example` file to `.env` and update the database connection URL.
-
-4. Run database migrations:
+3. Run database migrations:
 
    ```bash
    npx prisma migrate dev --name init
    ```
 
-5. Start the server:
+4. Start the server:
 
+   ```bash
+   npm run build
+   ```
    ```bash
    npm run start
    ```
@@ -128,14 +123,14 @@ Get a specific task by ID.
 
 ### `PUT /tasks/:id`
 
-Update a task.
+Edit a task.
 
 **Request Body:**
 
 ```json
 {
-  "title": "Updated task title",
-  "description": "Updated task description",
+  "title": "Edited task title",
+  "description": "Edited task description",
  
 
  "dueDate": "2023-05-27"
@@ -147,8 +142,8 @@ Update a task.
 ```json
 {
   "id": 1,
-  "title": "Updated task title",
-  "description": "Updated task description",
+  "title": "Edited task title",
+  "description": "Edited task description",
   "dueDate": "2023-05-27",
   "createdAt": "2023-05-20T10:00:00.000Z",
   "updatedAt": "2023-05-20T12:00:00.000Z"
@@ -166,10 +161,6 @@ Delete a task.
   "message": "Task deleted successfully"
 }
 ```
-
-## Contributing
-
-Contributions are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
 
 ## License
 

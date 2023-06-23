@@ -1,18 +1,30 @@
 {
-  "name": "01-fundamentos-nodejs",
-  "type": "module",
+  "name": "01-desafio",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch .\\src\\server.js",
-    "stream": "node --watch .\\streams\\stream-server.js"
+    "build": "tsup ./src -d ./dist",
+    "dev": "tsx watch ./src/server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "csv": "^6.3.0"
+    "@prisma/client": "^4.15.0",
+    "csv": "^6.3.0",
+    "dayjs": "^1.11.8",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.18.0",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "prisma": "^4.15.0",
+    "tsup": "^6.7.0",
+    "tsx": "^3.12.7",
+    "typescript": "^5.1.3"
   }
 }

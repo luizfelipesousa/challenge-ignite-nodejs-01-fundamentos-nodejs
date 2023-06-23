@@ -1,10 +1,12 @@
-import { app } from "./app";
+import { app } from './app'
 
-const server =  app
+const server = app
 
-server.listen({
+server
+  .listen({
     host: '0.0.0.0',
-    port: 3333
-}).then(() => {
+    port: 3333,
+  })
+  .then(() => {
     return console.log('Server is up and running!🆙')
-})
+  })

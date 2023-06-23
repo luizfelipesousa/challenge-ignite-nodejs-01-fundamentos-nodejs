@@ -5,10 +5,12 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch ./src/server.ts",
     "build": "tsup ./src -d ./dist",
     "start": "node ./dist/server.cjs",
-    "dev": "tsx watch ./src/server.ts"
+    "lint": "npx eslint --fix ./src/**",
+    "migrate": "npx prisma migrate dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +25,8 @@
   },
   "devDependencies": {
     "@types/node": "^20.3.1",
+    "@rocketseat/eslint-config": "^1.2.0",
+    "eslint": "^8.42.0",
     "prisma": "^4.15.0",
     "tsup": "^6.7.0",
     "tsx": "^3.12.7",

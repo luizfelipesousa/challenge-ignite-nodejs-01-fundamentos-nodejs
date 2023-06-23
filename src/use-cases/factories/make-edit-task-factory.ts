@@ -1,8 +1,8 @@
-import { PrismaTasksRepository } from "../../repository/prisma-repository/prisma-tasks-repository";
-import { EditTaskUseCase } from "../edit-task-use-case";
+import { PrismaTasksRepository } from '../../repository/prisma-repository/prisma-tasks-repository'
+import { EditTaskUseCase } from '../edit-task-use-case'
 
 export function makeEditTask() {
-    const repository = new PrismaTasksRepository();
-    const editTask = new EditTaskUseCase(repository);
-    return editTask;
+  const repository = new PrismaTasksRepository()
+  const editTask = new EditTaskUseCase(repository)
+  return editTask
 }

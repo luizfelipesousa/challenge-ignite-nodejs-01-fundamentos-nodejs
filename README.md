@@ -31,13 +31,17 @@ This is a RESTful API for creating and managing tasks. It is built using Node.js
    npm install
    ```
 
-3. Run database migrations:
+3. Set up the database:
+
+   - Rename the `.env.example` file to `.env` and update the database connection URL.
+
+4. Run database migrations:
 
    ```bash
    npx prisma migrate dev --name init
    ```
 
-4. Start the server:
+5. Start the server:
 
    ```bash
    npm run build

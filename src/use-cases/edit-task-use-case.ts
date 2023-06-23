@@ -1,4 +1,5 @@
 import { ResourceNotFoundException } from "../errors/resource-not-found";
+import { TaskAlreadyCompletedException } from "../errors/task-already-completed";
 import { Task } from "../model/task";
 import { TasksRepository } from "../repository/task-repository";
 
@@ -19,6 +20,10 @@ export class EditTaskUseCase {
 
         if(!task) {
             throw new ResourceNotFoundException('Task not found.')
+        }
+
+        if(task.completedAt === null) {
+            throw new TaskAlreadyCompletedException();
         }
 
         const updatedTask = await this.taskRepository.update({

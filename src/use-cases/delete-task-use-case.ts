@@ -1,5 +1,5 @@
 import { ResourceNotFoundException } from '../errors/resource-not-found'
-import { TasksRepository } from '../repository/task-repository'
+import { TasksRepository } from '../repositories/task-repository'
 
 interface DeleteTaskUseCaseRequest {
   taskId: string

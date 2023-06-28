@@ -1,4 +1,4 @@
-import { TasksRepository } from '../repository/task-repository'
+import { TasksRepository } from '../repositories/task-repository'
 import { InvalidDueDateException } from '../errors/invalid-due-date'
 import dayjs from 'dayjs'
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'

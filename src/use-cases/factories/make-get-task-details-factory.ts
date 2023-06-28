@@ -1,4 +1,4 @@
-import { PrismaTasksRepository } from '../../repository/prisma-repository/prisma-tasks-repository'
+import { PrismaTasksRepository } from '../../repositories/prisma-repository/prisma-tasks-repository'
 import { GetTaskDetailsUseCase } from '../get-task-details-use-case'
 
 export function makeGetTasksDetails() {

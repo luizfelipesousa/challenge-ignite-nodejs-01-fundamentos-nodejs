@@ -1,4 +1,4 @@
-import { TasksRepository } from '../repository/task-repository'
+import { TasksRepository } from '../repositories/task-repository'
 
 interface ListTaskUseCaseResponse {
   tasks: any[]
@@ -7,8 +7,8 @@ interface ListTaskUseCaseResponse {
 export class ListTaskUseCase {
   constructor(private taskRepository: TasksRepository) {}
 
-  async execute(): Promise<ListTaskUseCaseResponse> {
-    const tasks = await this.taskRepository.getAllTasks()
+  async execute(page?: number): Promise<ListTaskUseCaseResponse> {
+    const tasks = await this.taskRepository.getAllTasks({ page })
     return { tasks }
   }
 }

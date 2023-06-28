@@ -1,7 +1,11 @@
-import { prisma } from '../../lib/prisma'
 import { Prisma } from '@prisma/client'
 import { TasksRepository } from '../task-repository'
 import { Task } from '../../model/task'
+import { prisma } from '../../lib/prisma'
+
+export interface SearchCriteria {
+  page: number | undefined
+}
 
 export class PrismaTasksRepository implements TasksRepository {
   async create(task: Prisma.TasksUncheckedCreateInput): Promise<Task> {
@@ -50,10 +54,13 @@ export class PrismaTasksRepository implements TasksRepository {
     return result
   }
 
-  async getAllTasks(): Promise<Task[]> {
-    const tasks = await prisma.tasks.findMany()
+  async getAllTasks({ page }: SearchCriteria): Promise<Task[]> {
+    const pageNumber = page ?? 1
+    const tasks = await prisma.tasks.findMany({
+      take: 20,
+      skip: (pageNumber - 1) * 20,
+    })
     const tasksList = tasks.map((t) => new Task(t))
-
     return tasksList
   }
 }

@@ -1,4 +1,4 @@
-import { PrismaTasksRepository } from '../../repository/prisma-repository/prisma-tasks-repository'
+import { PrismaTasksRepository } from '../../repositories/prisma-repository/prisma-tasks-repository'
 import { CompleteTaskUseCase } from '../complete-task-use-case'
 
 export function makeCompleteTask() {

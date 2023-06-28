@@ -1,6 +1,6 @@
 import { ResourceNotFoundException } from '../errors/resource-not-found'
 import { TaskAlreadyCompletedException } from '../errors/task-already-completed'
-import { TasksRepository } from '../repository/task-repository'
+import { TasksRepository } from '../repositories/task-repository'
 
 interface CompleteTaskUseCaseRequest {
   taskId: string

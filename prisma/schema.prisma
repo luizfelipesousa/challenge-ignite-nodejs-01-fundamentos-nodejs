@@ -14,6 +14,7 @@ model Tasks {
   id           String    @id @default(uuid())
   title        String
   description  String?
+  owner_cookie String?
   created_at   DateTime  @default(now())
   due_date     DateTime  @default(now())
   updated_at   DateTime?

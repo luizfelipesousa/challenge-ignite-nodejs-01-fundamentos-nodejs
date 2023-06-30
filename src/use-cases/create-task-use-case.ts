@@ -1,7 +1,7 @@
 import { TasksRepository } from '../repositories/task-repository'
 import { InvalidDueDateException } from '../errors/invalid-due-date'
 import dayjs from 'dayjs'
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import { Task } from '../model/task'
 
 interface CreateTaskUseCaseRequest {
@@ -18,9 +18,9 @@ export class CreateTaskUseCase {
     description,
     dueDate,
   }: CreateTaskUseCaseRequest): Promise<Task> {
-    dayjs.extend(isSameOrAfter)
+    dayjs.extend(isSameOrBefore)
 
-    const isSameOrAfterDay = dayjs().isSameOrAfter(dueDate, 'date')
+    const isSameOrAfterDay = dayjs().isSameOrBefore(dueDate, 'date')
 
     if (isSameOrAfterDay) {
       return await this.taskRepository.create({

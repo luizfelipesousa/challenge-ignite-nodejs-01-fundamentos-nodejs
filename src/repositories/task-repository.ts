@@ -8,4 +8,10 @@ export interface TasksRepository {
   update(task: Task): Promise<Task>
   getById(taskId: string): Promise<Task | null>
   getAllTasks({ page }: SearchCriteria): Promise<Task[]>
+  getFilteredTasks({
+    page,
+    dueDate,
+    isCompleted,
+    q,
+  }: SearchCriteria): Promise<Task[]>
 }

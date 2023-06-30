@@ -10,7 +10,7 @@
     "start": "node ./dist/server.cjs",
     "lint": "npx eslint --fix ./src/**",
     "migrate": "npx prisma migrate dev",
-    "test": "vitest",
+    "test": "vitest ./src/use-cases",
     "coverage": "vitest run --coverage"
   },
   "keywords": [],

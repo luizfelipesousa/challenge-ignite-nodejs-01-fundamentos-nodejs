@@ -33,7 +33,7 @@ describe('Complete task use case', () => {
 
   it('should not be possible to complete a non existing task', async () => {
     await expect(() =>
-      sut.execute({ taskId: 'non-existing' })
+      sut.execute({ taskId: 'non-existing' }),
     ).rejects.toBeInstanceOf(ResourceNotFoundException)
   })
 
@@ -49,7 +49,7 @@ describe('Complete task use case', () => {
     })
 
     await expect(() =>
-      sut.execute({ taskId: alreadyCompletedTask.id })
+      sut.execute({ taskId: alreadyCompletedTask.id }),
     ).rejects.toBeInstanceOf(TaskAlreadyCompletedException)
   })
 })

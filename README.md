@@ -109,6 +109,26 @@ Get a list of all tasks.
 ]
 ```
 
+### `GET /tasks/search?q=title&isCompleted=true&dueDate=2023-06-20`
+
+Get a list of all tasks.
+
+**Response:**
+
+```json
+[
+  {
+    "id": "42fcec01-4ca5-4629-aea9-5c23ae084077",
+    "title": "Task title",
+    "description": "Task description",
+    "dueDate": "2023-06-20T10:00:00.000Z",
+    "createdAt": "2023-05-20T10:00:00.000Z",
+    "updatedAt": "2023-06-10T10:00:00.000Z",
+    "completedAt": "2023-06-10T10:00:00.000Z"
+  }
+]
+```
+
 ### `GET /tasks/:id`
 
 Get a specific task by ID.

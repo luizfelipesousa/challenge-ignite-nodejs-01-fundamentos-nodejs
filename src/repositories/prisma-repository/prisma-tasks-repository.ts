@@ -5,6 +5,9 @@ import { prisma } from '../../lib/prisma'
 
 export interface SearchCriteria {
   page: number | undefined
+  q?: string
+  isCompleted?: boolean
+  dueDate?: Date
 }
 
 export class PrismaTasksRepository implements TasksRepository {
@@ -62,5 +65,32 @@ export class PrismaTasksRepository implements TasksRepository {
     })
     const tasksList = tasks.map((t) => new Task(t))
     return tasksList
+  }
+
+  async getFilteredTasks({
+    page,
+    dueDate,
+    isCompleted,
+    q,
+  }: SearchCriteria): Promise<Task[]> {
+    const pageNumber = page ?? 1
+    const whereClause: any = {
+      title: { contains: q },
+      description: { contains: q },
+      due_date: { in: dueDate },
+    }
+
+    if (isCompleted) {
+      whereClause.completed_at = { not: null }
+    }
+
+    const filteredTasks = await prisma.tasks.findMany({
+      where: whereClause,
+      take: 20,
+      skip: (pageNumber - 1) * 20,
+    })
+
+    const filteredTasksList = filteredTasks.map((t) => new Task(t))
+    return filteredTasksList
   }
 }

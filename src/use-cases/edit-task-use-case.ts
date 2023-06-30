@@ -25,7 +25,7 @@ export class EditTaskUseCase {
       throw new ResourceNotFoundException('Task not found.')
     }
 
-    if (task.completedAt === null) {
+    if (task.completedAt !== null) {
       throw new TaskAlreadyCompletedException()
     }
 
